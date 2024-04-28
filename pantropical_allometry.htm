@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<title>Improved allometric models for tropical trees</title>
+<link href="css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+
+<div id="header">
+
+<ul id="nav">
+<li id="current"><a href="http://www.edb.ups-tlse.fr/?lang=en"><h3>edb website</h3></a></li>
+<li><a href="http://chave.ups-tlse.fr/"><h3>chave webpage</h3></a></li>
+<li><a href="#"></a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#database">Database</a></li>
+<li><a href="#CWD">Climatic water deficit</a></li>
+<li><a href="#E">Stress variable E</a></li>
+<li><a href="#raster">Raster tools</a></li>
+</ul>
+
+</div>
+<h1></h1><h2><font face="Verdana, Arial, Helvetica, sans-serif" size="3">Generic tree allometric models</font></h2>
+
+<div id="sidebar">
+<a href="#"><img src="pantropical_allometry/tree.jpg" alt="place holder image" /></a>
+</div>
+
+<div id="content">
+<a id="citation">This</a> webpage contains supplementary information to the following 
+article: Chave J, Rejou-Mechain M,   Burquez A,  Chidumayo E,  Colgan MS,   Delitti WBC,  
+Duque A,  Eid T,   Fearnside PM,  Goodman RC,  Henry M,   Martinez-Yrizar A,  Mugasha WA,  
+ Muller-Landau HC,  Mencuccini M,  Nelson BW,   Ngomanda A,  Nogueira EM,  
+ Ortiz-Malavassi E,   Pelissier R,  Ploton P,  Ryan CM,   Saldarriaga JG,  Vieilledent G. 
+ Improved  allometric models to estimate the above ground  biomass of tropical trees. 2014. 
+<a href="http://onlinelibrary.wiley.com/doi/10.1111/gcb.12629/abstract"> Global Change Biology. DOI: 10.1111/gcb.12629</a>
+  <p>&nbsp;</p>
+  <p><a id="database"></a> We have compiled tree harvest data for 58 sites around the tropics. 
+  Included trees had a diameter at breast height > 5 cm. 
+  Every felled tree had at least: (i) a trunk diameter measurement, in cm; 
+  (ii) a total tree height measurement, in m;
+  (iii) an aboveground biomass measurement (oven-dry biomass, in kg); and 
+  (iv) an estimate of wood specific gravity.  
+  The file below (in csv format) contains five columns: the four tree-level variables 
+  reported in the database, plus an acronym describing the study site, and described 
+  in detail in Table S1 of <a href="http://onlinelibrary.wiley.com/doi/10.1111/gcb.12629/abstract">Chave et al. 2014</a></p> 
+  <div align="center"><a href="pantropical_allometry/Chave_GCB_Direct_Harvest_Data.csv">Download the pantropical tree harvest database</a></div>
+  <p>&nbsp;</p>
+    
+  <p><a id="CWD"></a>The long-term climatic water deficit (CWD) is the water lost by the 
+  environment during dry months (defined as months where evapotranspiration exceeds 
+  rainfall). It is measured in mm/yr as the difference between rainfall and 
+  evapotranspiration during dry months only and is, by definition, negative. 
+  Sites such that CWD=0 are not seasonally water-stressed; in contrast, sites with 
+  very negative CWD values are strongly seasonally water-stressed. Several recent 
+  studies have emphasized the importance of CWD as a predictor of ecosystem response 
+  to climatic change. Here, we provide a global climate layer for the long-term average 
+  of CWD at 2.5 arc-minute resolution.</p>  
+ <div align="center">
+   <a href="pantropical_allometry/CWD.kmz">Download kmz layer for CWD (may be opened in Google Earth)</a><br>
+    <a href="pantropical_allometry/CWD.nc.zip">Download CWD in netCDF format (zipped)</a><br>
+    <a href="pantropical_allometry/CWD.bil.zip">Download CWD in generic grid (raster) format (zipped)</a><br>
+    <a href="pantropical_allometry/CWD.tif.zip">Download CWD in GeoTIFF format (zipped)</a> </div>
+<p>&nbsp;</p>
+
+ <p><a id="E"></a> Environmental stress factor on the diameter-height tree allometry.
+ During the analysis of a pantropical tree harvest compilation (<a href="http://onlinelibrary.wiley.com/doi/10.1111/gcb.12629/abstract">Chave et al. 2014</a>), we 
+ found that an environmental variable defined by E=1.e-3 x (0.178xTS-0.938xCWD-6.61xPS) 
+ is an important covariable of the diameter-height relationship of trees. 
+ In this equation, TS is temperature seasonality as defined in the <a href="http://www.worldclim.org/bioclim">Worldclim dataset</a>
+  (bioclimatic variable 4). CWD is the climatic water deficit (in mm/yr, measured as above). 
+  PS is the precipitation seasonality as defined in the <a href="http://www.worldclim.org/bioclim">Worldclim dataset</a> 
+  (bioclimatic variable 15). The raster file for variable E is available below 2.5 arc-minute resolution. </p>
+ <div align="center"><a href="pantropical_allometry/E.kmz">Download kmz layer for E (may be opened in Google Earth)</a><br>
+   <a href="pantropical_allometry/E.nc.zip">Download E in netCDF format (zipped)</a><br>
+   <a href="pantropical_allometry/E.bil.zip">Download E in generic grid (raster) format (zipped)</a><br>
+   <a href="pantropical_allometry/E.tif.zip">Download E in GeoTIFF format (zipped)</a>
+</div>   
+<p>&nbsp;</p>
+ 
+  <p><a id="raster"></a> Raster tools. For beginners in spatial grid data and/or R 
+  (for more information on the R project, see <a href="http://www.r-project.org/">http://www.r-project.org/</a>), 
+  you may obtain values for CWD or E at one or several geolocations by copying and 
+  pasting the following two lines in the R environment:
+   <div align="center">source(&quot;http://chave.ups-tlse.fr/pantropical_allometry/readlayers.r&quot;)<br>
+  retrieve_raster(raster,coord,plot=FALSE,format=&quot;nc&quot;) </div>
+<p>&nbsp;</p>
+   <div>Here, 'raster' should be either "CWD" or "E", depending on the raster file to 
+   be selected; 'coord' is a R data.frame containing the coordinates of one or several 
+   sites; 'plot' option is set to "TRUE" only to plot the raster as a map (time-consuming); 
+   format is the format of the raster file: "nc" for netCDF format (default, faster in 
+   linux-based environments), or "bil" a file in raster format.</div>
+To check that the routine above works properly, please run the lines below in R (or RStudio):
+ <div align="center">  install.packages(&quot;raster&quot;)<br>
+ install.packages(&quot;ncdf4&quot;)<br>
+ longitude=-52.68;latitude=4.08;coord=cbind(longitude,latitude) <br>
+   retrieve_raster("CWD",coord)<br>
+   retrieve_raster("E",coord) </div>
+<p>&nbsp;</p>
+The first value for CWD should return -117.7933. The second value (for E) should 
+return -0.1287045. The coordinates in this test are those of the 
+<a href="http://www.nouragues.cnrs.fr/">Nouragues Ecological Research Station</a>.
+
+<p>&nbsp;</p>
+<p><i>Last update May 10th, 2014</i></p>
+
+
+</div>
+
+<div id="footer"></div>
+</body>
+</html>
