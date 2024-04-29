@@ -1,0 +1,10 @@
+ln(theta)_min	0
+ln(theta)_max	10
+ln(I)_min	0
+ln(I)_max	10
+delta_min	-1
+delta_max	1
+J_largecom	10000
+nb_simul_ABC	20000
+percentsimul	0.025
+nb_simul_neutrality-test	1000
